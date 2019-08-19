@@ -79,6 +79,23 @@
         </dependency>
 
         <dependency>
+            <groupId>io.ostenant.rpc.thrift</groupId>
+            <artifactId>spring-cloud-starter-thrift-server</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.ostenant.rpc.thrift</groupId>
+            <artifactId>spring-cloud-starter-thrift-example-iface</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.12.0</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>

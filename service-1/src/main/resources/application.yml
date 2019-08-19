@@ -11,6 +11,16 @@ spring:
       port: 8500
       discovery:
         healthCheckInterval: 10s
+  thrift:
+    server:
+      service-id: thrift-rpc-calculator ## 服务ID
+      service-model: hsHa ## 服务线程模型simple/nonBlocking/threadPool/hsHa/threadedSelector
+      port: 25001
+      worker-queue-capacity: 1000
+      hs-ha:
+        min-worker-threads: 5
+        max-worker-threads: 20
+        keep-alived-time: 3
   application:
     name: account
   zipkin:
