@@ -1,0 +1,38 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+    # 网关配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: account
+          # consul 获取的服务名称 lb -> load balance
+          uri: lb://account
+          predicates:
+            - Path=/cloud/**
+          # 过滤 去掉路径中的 /cloud
+          filters:
+            - StripPrefix=1
+  application:
+    name: gateway
+
+
+server:
+  port: 9003
+#
+#
+#    #  - id: commodityApi
+#    #    # consul 获取的服务名称 lb -> load balance
+#    #    uri: lb://commodity-server
+#    #    predicates:
+#    #    - Path=/api/commodity/**
+#    #    # 过滤 去掉路径中的 /api
+#    #    filters:
+#    #    - StripPrefix=1
